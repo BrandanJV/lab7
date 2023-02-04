@@ -1,0 +1,65 @@
+<%- include ("./partials/_header") %>
+
+
+
+<div class="container">
+  <a href ="/newPost"><button type="button" class="btn btn-primary">Create New Post</button></a>
+</div>
+
+<main role="main" class="container">
+  <div class="row">
+    <div class="col-md-8 blog-main">
+      
+      <div class="blog-post">
+        <h2 class="blog-post-title">Sample blog post</h2>
+        <p class="blog-post-meta">November 1, 2014 by <a href="#">Mark</a>     </p>
+        <p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
+        <a class = "btn btn-danger" href =""> Delete </a>
+        <a class = "btn btn-info" href =""> Edit </a>
+      </div>
+
+
+
+    </div>
+
+    <div class="col-md-7">
+      <table class= "table table-bordered table-hover">
+      
+          <thead>
+              <tr>
+                      <th>#</th>
+                      <th>Title</th>
+                      <th>Description</th>
+                      <th>Post Date</th>
+                      <th>Operations</th>
+              </tr>
+      
+          </thead>
+          <tbody>
+             
+              <%  for (let i =0;i<tasks.length; i++)     {   %>
+
+              <tr>
+
+              <td> <%= i+1   %>   </td>
+              <td> <strong><%= tasks[i].title  %>  </strong>   </td>
+              <td><%= tasks[i].post_data  %></td>
+              <td><%= tasks[i].post_date  %></td>
+              <td>
+              <a href="/delete/<%= tasks[i]._id  %>"class="btn btn-danger">Delete</a>
+              <a href="/edit/<%= tasks[i]._id  %>"class="btn btn-info">Edit</a>
+              </td>
+              </tr>
+
+              <%   }     %>
+
+          </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+
+
+
+<%- include ("./partials/_footer") %>
